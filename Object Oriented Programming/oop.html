@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <header>
+        <title>OOP</title>
+        <meta charset ="UTF-8">
+    </header>
+    <body>
+        <p id = shakeid></p>
+        <script>
+            class Dog {
+                constructor (breed, color, height, weight) {
+                    this.breed = breed;
+                    this. color = color;
+                    this.height = height;
+                    this.weight = weight;
+                 }
+                 shake() {
+                     console.log(this.breed + ' is shaking');
+                    
+                 }
+                 sit() {
+                 console.log("I'm sitting.");
+                 }
+                 layDown() {
+                     return "I'm laying down."
+                 }
+                
+        
+            }
+         dog1 = new Dog('hound', 'brown', 2, 60);
+        dog1.shake();
+        dog1.sit();
+        result = dog1.layDown();
+        document.getElementById('shakeid').innerHTML = result;
+        </script>
+    </body>
+</html>

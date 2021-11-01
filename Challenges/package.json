@@ -1,0 +1,15 @@
+{
+  "name": "nodesforchallenges",
+  "version": "1.0.0",
+  "description": "",
+  "main": "JavaScriptChallenge.js",
+  "scripts": {
+    "test": "test",
+    "dev":"lite-server"
+  },
+  "author": "Sarah",
+  "license": "ISC",
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
