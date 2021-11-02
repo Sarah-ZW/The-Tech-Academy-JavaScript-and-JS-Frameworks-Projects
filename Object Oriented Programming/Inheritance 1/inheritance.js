@@ -9,15 +9,13 @@ class Shape {
 
 //circle
 class Circle extends Shape {
-    constructor() {
+    constructor(color, radius) {
         super(color);
         this.radius = radius;
     }
     getArea() {
-        this.radius = document.getElementById('circleRadius');
         let circleAreaUser = Math.PI * (this.radius **2);
-        document.getElementById('circleArea').innerHTML = "The area of your circle is: "
-        + circleAreaUser;
+        return circleAreaUser;
     
     }
 }
@@ -30,35 +28,52 @@ class Rectangle extends Shape {
         this.width = width;
     }
     getArea() {
-            this.height = document.getElementById('rectangleHeight');
-            this.width = document.getElementById('rectangleWidth');
             let rectangleAreaUser = this.height * this.width;
-            document.getElementById('rectangleArea').innerHTML = "The area of your rectangle is: "
-             + rectangleAreaUser;    
+            return rectangleAreaUser;    
     }
-
 }
 
 //triangle
 class Triangle extends Shape {
-    constructor() {    
+    constructor(color, height, base) {    
     super(color);
-        this.base = base;
-        this.height = height;
+    this.color = color;
+    this.height = height;    
+    this.base = base;
+        
     }
-    getArea(height, base){
-        height = document.getElementById('triangleHeight');
-        base = document.getElementById('triangleBase');
-        let triangleAreaUser = (height * base)/2;
-        document.getElementById('triangleArea').innerHTML = "The area of your triangle is: "
-         + triangleAreaUser;
+    getArea(){
+        let triangleAreaUser =(this.height * this.base)/2;
+        return triangleAreaUser;    
     }
 }
 
 //instantiate
-function TriangleOnClick() {
-    triangleInstance = new Triangle();
-    triangleInstance.getArea();
+function getTriangleArea() {
+    let height = document.getElementById('triangleHeight').value;
+    let base = document.getElementById('triangleBase').value;
+    let color = 'blue';
+    triangleInstance = new Triangle(color, height, base);
+    let answer =triangleInstance.getArea();
+    document.getElementById('triangleArea').innerHTML = "The area of your triangle is: "
+     + answer; 
 }
+
+function getCircleArea() {
+    let radius = document.getElementById('circleRadius').value;
+    let color = 'red';
+    let circleInstance = new Circle(color, radius);
+    let answer = circleInstance.getArea();
+    document.getElementById('circleArea').innerHTML = "The area of your circle is: "
+        + answer;
 }
-let userTriangle = new Triangle('blue',5,5);
+
+function getRectangleArea() {
+    let height = document.getElementById('rectangleHeight').value;
+    let width = document.getElementById('rectangleWidth').value;
+    let color = 'green';
+    let rectangle = new Rectangle(color, height, width);
+    let answer = rectangle.getArea();    
+    document.getElementById('rectangleArea').innerHTML = "The area of your rectangle is: "
+             + answer;
+}
