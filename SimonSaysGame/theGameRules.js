@@ -11,8 +11,7 @@ $(function() {
     var setupLightSequence = function() {
         var randomNum = Math.floor(Math.random() *4);
         gameSequence[level-1] = randomNum;
-        showLightSequence();
-        
+        showLightSequence(); 
     };
 
     var lightOn = function(no){
@@ -23,8 +22,7 @@ $(function() {
 
     var lightOff = function() {
         colors.removeClass('on');
-        $('.on').fadeOut();
-        $('.on').fadeIn();
+        
     };
     var showLightSequence = function() {        
         lightOff();
@@ -82,7 +80,7 @@ $(function() {
         $(this).text('Simon says...');
         $('body').removeClass('game-over');
         $(document).ready(function(){
-            $('li').css('display','block').animate({left:'500px'},3000);
+            $('li').css('display','block').animate({left:'500px'},1000);
         });
        setupLightSequence();
     }        
