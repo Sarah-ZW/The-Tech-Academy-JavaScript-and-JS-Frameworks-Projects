@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>JQuery Challenge</title>
+        <meta charset="UTF-8">
+        <style>
+            #panel {
+              width: 100%; 
+              height: 30px;
+              background-color:orangered
+              }
+              #panelExtension {
+                  width:100%;
+                  height: 200px;
+                  display:none;
+                  background-color: paleturquoise;
+              }
+              #animateBox {
+                  width:100px;
+                  height:100px;
+                  background-color:rebeccapurple;
+                  position: absolute;
+
+              }
+          </style>
+    </head>
+    <body>
+
+        <p>I am paragraph</p>
+        <button id = "firstButton">Click for disappearing act</button>
+        <h4 id = "id1">Hide me</h4>
+        <h2 class = "class2">Hide me too</h2>
+
+        <ul>
+            <li>1</li>
+            <li>2</li>
+        </ul>
+
+        <ul>
+            <li>person</li>
+            <li>place</li>
+            <li>thing</li>
+        </ul>
+
+        <p id = "iam1">Here is a paragraph</p>
+
+        name: <input type='text' name='fullname'>
+        email: <input type='text' name='email'>
+
+        <h3 id = 'mystery'>Now you see me, now you...</h3>
+        <button id='btnHide'>Hide</button>
+        <button id='btnShow'>Show</button><br><br>
+
+        <button id = "newButton">Toggle the word below</button>
+        <p id = 'below'>Below</p><br><br>
+
+        <button id='fadeButton'>Fade In</button>
+        <img id='i1' src='./images/img1.jfif' style='width:100px; height:100px; display:none;'>
+        <img id ='i2' src='./images/img2.jfif' style='width:100px; height:100px; display:none;'>
+        <img id='i3' src='./images/img3.jfif' style='width:100px; height:100px; display:none;'>
+
+
+        <div id = 'panel'></div>
+        <div id = 'panelExtension'></div><br>
+        
+        <button id = 'animateButton'>Click for animation</button>
+        <div id = 'animateBox'></div>
+        <button id ='stopAnimation'>Stop</button>
+
+        <br><br><br><br><br><br><br><br><br><br>
+        <button id = 'chain'>Chain reaction -go!</button>
+        <div id = 'pickMe'>I'm ready to change more than once</div>
+
+        <div id = 'text1'>Will something happen?</div>
+        <button id ='btn5'>Click for text alert created in JavaScrit</button>
+
+        <!-- Attribute-->
+        <br><br>
+        <button id="btnAtt">Click for new link</button>
+        <div><a id ="newLink" href="https://www.google.com/">Go to Link</div>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src = "./jQueryChallenge.js"></script>
+    </body>
+</html>
