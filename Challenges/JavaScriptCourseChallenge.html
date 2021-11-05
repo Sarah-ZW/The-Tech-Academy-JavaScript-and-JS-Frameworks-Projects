@@ -7,16 +7,22 @@
         </script>
     </head>
     <body>
-        <h1 id=leaf>put something here</h1>
-        <p id = textreplace></p>
+        <h1 id='leaf'>put something here</h1>
+        <p id = 'textreplace'></p>
         <p id = "notquite"></p>
-        <p id =colortime></p>
-        <p id = arrow></p>
-        <p id = integ></p> <br>
+        <p id ='colortime'></p>
+        <p id = 'arrow'></p>
+        <p id = 'integ'></p> <br>
         <form action='/action_page.php' method='post' onsubmit = 'return validateForm()'
         name ="myForm">
         Name: <input type="text" name="fname">
         <input type = "submit" value ="Submit">
+        </form> <br><br>
+
+        <form name = 'testForm' method='post'>
+            <input type='number' id='checkMe' name='numberAmount' min='10' required> 
+            <button onclick='checkItOut()' type='submit'  value='submit'>Submit</button>
+                <p id ='output'></p>
         </form>
     </body>
 </html>

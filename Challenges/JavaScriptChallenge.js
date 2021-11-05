@@ -114,3 +114,10 @@ function validateForm() {
         return false;
     }
 }
+
+function checkItOut() {
+    let x = document.getElementById('checkMe');
+    if(!x.checkValidity()) {
+        document.getElementById('output').innerHTML = x.validationMessage;
+    };
+}
