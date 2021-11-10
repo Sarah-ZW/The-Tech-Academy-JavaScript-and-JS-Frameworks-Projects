@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta content= 'text/html; charset=ISO-8859-1'  http-equiv = 'content-type'>
+    <script type= "application/javascript">
+        function loadJSON() {
+          var data_file = "https://api.agify.io?name=" + document.getElementById('personName').value;
+            var http_request = new XMLHttpRequest();
+            try {
+                //Opera 8.0+, Firefox, Chrome, Safari
+                http_request = new XMLHttpRequest();
+            }
+            catch (e) {
+                //Internet Explorer Browsers
+                    try {
+                        http_request = new ActiveXObject("Msxml2.XMLHTTP");
+                    }
+                    catch(e) {
+                                try {http_request = new ActiveXObject("Microsoft.XMLHTTP");
+                            }
+                                catch(e) {
+                                    //something went wrong
+                                    alert("Your browser broke!");
+                                    return false;
+                                }
+                            }
+                 }
+        http_request.onreadystatechange = function() {
+            if (http_request.readyState == 4 ) {
+                //Javascript function JSON.parse to parse JSON data
+                var jsonObj = JSON.parse(http_request.responseText);
+
+                //jsonObj variable now contains the data structure and can
+                //be accessed as jsonObj.activity
+                console.log(jsonObj);
+                document.getElementById('ageGuess').innerHTML = "I predict your age is " + jsonObj.age;
+            }
+        }
+        http_request.open("Get", data_file, true);
+        http_request.send();
+     }
+        
+    </script>
+
+    <title>Activity Finder</title>
+    </head>
+
+    <body>
+        <h1>This will guess your age based on the name you input below:</h1>
+            <input id="personName" placeholder="Type in your name please"><br><br>
+            <button type='submit' onclick="loadJSON()">Submit</button><br><br>
+
+            <p id='ageGuess'></p>
+    </body>
+    
+</html>
