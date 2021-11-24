@@ -173,6 +173,7 @@ class View {
             event.preventDefault()
 
             if (this._todoText) {
+                handler(this._todoText)
             this._resetInput()
             }
         })
