@@ -276,19 +276,18 @@ playAgain: function() {
         this.currentWord = this.words[randomInteger(0, this.words.length-1)];
     }
     this.restart();
-}   
+     
 },
 //identify the canvas element and initialize it, draw the gallows, choose a word, and draw the blanks.
 mounted: function() {
     this.canvas = document.getElementById("board-canvas");
     this.canvas.width = document.getElementById("board").offsetWidth;
     this.canvas.height = document.getElementById("board").offsetHeight;
-    this.ctx.this.canvas.getContext('2d');
+    this.ctx = this.canvas.getContext('2d');
     this.ctx.lineWidth = 2;
     this.drawGallows(this.ctx);
     this.currentWord = this.words[randomInteger(0, this.words.length-1)];
         this.makeBlanks();
 }
-
 });
 
