@@ -6,7 +6,7 @@ function randomInteger(min, max) {
 //keyboard letter button component
 Vue.component("letter-button", {
     props:["letter", "gameOver", "twoPlayers"],
-    template: "<button class='keyboard-row-letter' :id='letter' :disabled='disabled' @click='clicked'()'>{{ letter }}</button>",
+    template: "<button class='keyboard-row-letter' :id='letter' :disabled='disabled' @click='clicked()'>{{ letter }}</button>",
     data: function() {
         return {
             disabled:false
@@ -44,11 +44,11 @@ data: {
     //words to choose from
 
     words: [
-        "BUTTERCUP",
-        "TANSY",
-        "PIGEON",
+        "CHILDREN",
+        "WASTEFUL",
+        "PIRATE",
         "REPTILE",
-        "HAWK",
+        "TIGER",
         "CAPYBARA",
         "DELICATE",
         "OFFICIAL",
@@ -56,10 +56,10 @@ data: {
         "GRANOLA",
         "IMPERATIVE",
         "DELICIOUS",
-        "ANTICIPATION",
+        "SELECTIVE",
         "APPLE",
-        "BANANA",
-        "BILIOUS",
+        "REGAL",
+        "RELATIONSHIP",
         "INTESTINE",
         "AMPLIFY"
     ],
@@ -83,17 +83,17 @@ methods: {
     //draw the gallows
     drawGallows: function(ctx) {
         ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        ctx.fillStyle = "#FF9800";
-        ctx.strokeStyle = "#FF9800";
+        ctx.fillStyle = "#b46a85";
+        ctx.strokeStyle = "#b46a85";
         ctx.beginPath();
         //left side
         ctx.moveTo(this.canvas.width / 10, this.canvas.height/10);
         ctx.lineTo(this.canvas.width / 10, this.canvas.height * 0.95);
         //bottom side
-        ctxlineTo(this.canvas.width * 0.8, this.canvas.height * 0.95);
+        ctx.lineTo(this.canvas.width * 0.8, this.canvas.height * 0.95);
         //top side
         ctx.moveTo(this.canvas.width / 10, this.canvas.height / 10);
-        ctx.lineTo(this.canvas.width * 0.4, this.canvas.height / 10);
+       
         //hanging notch
         ctx.lineTo(this.canvas.width * 0.4, this.canvas.height / 5);
         ctx.stroke();
@@ -121,7 +121,7 @@ methods: {
         else if (this.guesses === 1) {
             ctx.beginPath();
             ctx.moveTo(this.canvas.width * 0.4, (this.canvas.height / 5) + 40);
-            ctx.lineTo(this.canvas.width * 04, this.canvas.height /2);
+            ctx.lineTo(this.canvas.width * 0.4, this.canvas.height /2);
             ctx.stroke();
             ctx.closePath();
         }
@@ -189,14 +189,7 @@ methods: {
                 if (!this.wordDivs.some(function(value) {return value==""})) {
                     this.gameOver = true;
                     this.ctx.font = "24px Roboto, san-serif";
-                    this.ctx.fillText("You Win!", this.canvas.width * 0.4 - 30, this.canvas.height * 0.9);
-                }
-            }
-            //if there are no more blanks in the word, you win
-            if (!this.wordDivs.some(function(value) {return value == ""})) {
-                this.gameOver = true;
-                this.ctx.font = "24px Roboto, sans-serif";
-                this.ctx.fillText("You Win!", this.canvas.width * 0.4 - 30, this.canvas.height * 0.9);
+                    this.ctx.fillText("You Win!", this.canvas.width * 0.4 - 30, this.canvas.height * 0.9);      
             }
             //if they guess wrong, draw the man
             if (!guessCorrect) {
@@ -276,7 +269,7 @@ playAgain: function() {
         this.currentWord = this.words[randomInteger(0, this.words.length-1)];
     }
     this.restart();
-     
+}    
 },
 //identify the canvas element and initialize it, draw the gallows, choose a word, and draw the blanks.
 mounted: function() {
