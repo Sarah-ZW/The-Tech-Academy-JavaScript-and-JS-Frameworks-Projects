@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+
+    <div id="mydiv"></div>
+    <div id ="hdiv"></div>
+    <div id="pdiv"></div>
+    <div id= "adiv"></div>
+    <div id= "next"></div>
+    <div id = "twi"></div>
+
+      
+    <script type="text/babel">
+      function Hello(pass) {
+        return <h1>Hello World of {pass.data}!</h1>;
+
+      }
+
+      function Createclass() {
+        return (<>Another class over here
+        <Hello data="11" /> </>
+        )
+      }
+
+      const myelement = (<div><p> I love JSX </p>
+      <ul>
+        <li> 1 </li>
+        <li> 2 </li>
+      </ul> </div>);
+
+      function Createnew (props) {
+        return <h2> Fun times with a prop named {props.name1}</h2>
+      }
+
+      const secondelement = <Createnew name1="Jimmy" />
+
+      ReactDOM.render(myelement, document.getElementById('mydiv'));
+      ReactDOM.render(<Createclass />, document.getElementById('pdiv'));
+      
+      ReactDOM.render(secondelement, document.getElementById('adiv'));
+
+      //state
+      class Climbing extends React.Component {
+        constructor(props) {
+          super(props) 
+            this.state= {
+              brand: "Patagonia",
+              model: "High End",
+              color: "black",
+              year: 2019
+          };
+        }
+        shouldComponentUpdate() {
+          return true;
+        }
+        changeColor = () => {
+          this.setState({color:"blue"});
+        }
+        static getDerivedStateFromProps(props, state) {
+           return{model: props.modelClass}
+        }
+        render() {
+          return (
+            <div>
+              <h1> My climbing gear is {this.state.brand} which is the {this.state.model}, color {this.state.color}. </h1>
+              <button type="button" onClick={this.changeColor}>Change Color</button>
+              </div>
+          );
+        }
+        componentDidMount() {
+          setTimeout( () => {
+            this.setState({color:"green"})
+          },2000)
+        }
+      }
+
+      ReactDOM.render(<Climbing />, document.getElementById('next'));
+      ReactDOM.render(<Climbing modelClass = "robinhood" />, document.getElementById('twi'));
+
+    </script>
+
+
+
+  </body>
+</html>
