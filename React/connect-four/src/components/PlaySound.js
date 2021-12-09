@@ -1,5 +1,5 @@
 import Sound from 'react-sound';
-import Music1 from './Sounds/music1.mp3';
+import Music1 from '../assets/music1.mp3';
 
 
 const PlaySound = (

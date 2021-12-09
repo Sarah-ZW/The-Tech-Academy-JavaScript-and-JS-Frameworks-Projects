@@ -2,6 +2,7 @@ import React from "react";
 import Board from "../Board/Board";
 import { Props, State, ChipsPositions } from "./types";
 import styles from "./App.module.css";
+import PlaySound from "../PlaySound";
 
 export default class App extends React.PureComponent<Props, State> {
     state: State = {
