@@ -2,6 +2,7 @@ import React from "react";
 import Board from "../Board/Board";
 import { Props, State, ChipsPositions } from "./types";
 import styles from "./App.module.css";
+import PlaySound from "../PlaySound";
 
 export default class App extends React.PureComponent<Props, State> {
     state: State = {
@@ -104,6 +105,8 @@ export default class App extends React.PureComponent<Props, State> {
         }
     }
 
+
+
     renderBoard() {
         const { columns, rows } = this.props;
         const { chipsPositions } = this.state;
@@ -121,11 +124,24 @@ export default class App extends React.PureComponent<Props, State> {
         const { gameStatus } = this.state;
         return <div className={styles.statusMessage}>{gameStatus}</div>;
     }
+
+    renderSound() {
+        const {handlePlaySound, handleSongPlaying, handleSongFinishedPlaying} = this.context;
+        return(
+            <PlaySound
+                handlePlaySound = {handlePlaySound}
+                handleSongPlaying = {handleSongPlaying}
+                handleSongFinishedPlaying= {handleSongFinishedPlaying}
+
+                />
+        );
+    }
     render() {
         return(
             <div className={styles.app}>
                 {this.renderBoard()}
                 {this.renderStatusMessage()}
+                {this.renderSound()}
             </div>
         );
     }
