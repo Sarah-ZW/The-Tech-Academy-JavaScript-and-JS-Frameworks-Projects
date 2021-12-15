@@ -4,6 +4,7 @@ import { Props, State, ChipsPositions } from "./types";
 import styles from "./App.module.css";
 import PlaySound from "../PlaySound";
 
+
 export default class App extends React.PureComponent<Props, State> {
     state: State = {
         chipsPositions: {},
@@ -19,7 +20,7 @@ export default class App extends React.PureComponent<Props, State> {
             let repetitionCountStatus = { playerChip: "", count:0 };
     
             for (let column = 0; column< columns; column++) {
-                const chip = chipsPositions['${row}: ${column}'];
+                const chip = chipsPositions[`${row}: ${column}`];
     
                 //if there is a chip in that position, and belongs
                 //to a player, count that chip for that player
@@ -70,7 +71,8 @@ export default class App extends React.PureComponent<Props, State> {
         //Get the last empty tile of the column
         const column = parseInt(tileId.split(":")[1]);
         let lastEmptyTileId = this.getLastEmptyTile(column);
-    
+          
+
         //If there is no empty tile in the column, do nothing
         if(!lastEmptyTileId){
             return;
@@ -139,9 +141,10 @@ export default class App extends React.PureComponent<Props, State> {
     render() {
         return(
             <div className={styles.app}>
+                {this.renderSound()}
                 {this.renderBoard()}
                 {this.renderStatusMessage()}
-                {this.renderSound()}
+                
             </div>
         );
     }
@@ -150,4 +153,6 @@ export default class App extends React.PureComponent<Props, State> {
     
     
 }
+
+
 
