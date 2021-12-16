@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import Sound from 'react-sound';
-import Music1 from '../assets/music1.mp3';
+import Music1 from '../assets/music1.mp3'
+
 
 
 const PlaySound = (
     handleSongLoading,
     handleSongPlaying,
-    handleSongFinishedPlaying
+    handleSongFinishedPlaying,
 ) => {
         const [isPlaying, setIsPlaying] = useState(false);
     return(

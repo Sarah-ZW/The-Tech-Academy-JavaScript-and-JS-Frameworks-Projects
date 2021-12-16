@@ -5,6 +5,7 @@ import styles from "./App.module.css";
 import PlaySound from "../PlaySound";
 
 
+
 export default class App extends React.PureComponent<Props, State> {
     state: State = {
         chipsPositions: {},
@@ -67,7 +68,7 @@ export default class App extends React.PureComponent<Props, State> {
 
     handleTileClick = (tileId: string) => {
         const { chipsPositions, playerTurn } = this.state;
-    
+
         //Get the last empty tile of the column
         const column = parseInt(tileId.split(":")[1]);
         let lastEmptyTileId = this.getLastEmptyTile(column);
@@ -92,6 +93,10 @@ export default class App extends React.PureComponent<Props, State> {
     
         //Save new state
         this.setState({ chipsPositions: newChipsPositions, playerTurn: newPlayerTurn, gameStatus });
+
+        
+
+
     };
     
     getLastEmptyTile(column: number) {
@@ -134,16 +139,17 @@ export default class App extends React.PureComponent<Props, State> {
                 handlePlaySound = {handlePlaySound}
                 handleSongPlaying = {handleSongPlaying}
                 handleSongFinishedPlaying= {handleSongFinishedPlaying}
-
                 />
         );
     }
+
     render() {
         return(
             <div className={styles.app}>
-                {this.renderSound()}
                 {this.renderBoard()}
                 {this.renderStatusMessage()}
+                {this.renderSound()}
+
                 
             </div>
         );
