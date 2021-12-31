@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import styles from "./Tile.module.css";
 import { Props } from "./types";
-import SoundEffect from "../PlaySoundEffect";
+
 
 
 export default class Tile extends React.PureComponent<Props> {
@@ -14,7 +14,7 @@ export default class Tile extends React.PureComponent<Props> {
         return (
             <div className={styles.tile} onClick={() => onClick(id)}>
             {chipType && <div className={chipCssClass} />}
-            <SoundEffect/>
+            
             </div>
         );
     }

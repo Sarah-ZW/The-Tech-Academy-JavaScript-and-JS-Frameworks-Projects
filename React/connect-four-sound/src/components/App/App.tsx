@@ -3,7 +3,7 @@ import Board from "../Board/Board";
 import { Props, State, ChipsPositions } from "./types";
 import styles from "./App.module.css";
 import PlaySound from "../PlaySound";
-
+import SoundEffect from "../PlaySoundEffect";
 
 
 export default class App extends React.PureComponent<Props, State> {
@@ -20,7 +20,7 @@ export default class App extends React.PureComponent<Props, State> {
         for(let row = 0; row < rows; row++) {
             let repetitionCountStatus = { playerChip: "", count:0 };
     
-            for (let column = 0; column< columns; column++) {
+            for (let column = 0; column < columns; column++) {
                 const chip = chipsPositions[`${row}: ${column}`];
     
                 //if there is a chip in that position, and belongs
@@ -44,7 +44,7 @@ export default class App extends React.PureComponent<Props, State> {
         for (let column =0; column < columns; column++) {
             let repetitionCountStatus = { playerChip: "", count: 0};
     
-            for(let row=0; row<rows; row++) {
+            for(let row=0; row <rows; row++) {
                 const chip = chipsPositions[`${row}:${column}`];
                 //If there is a chip in that position, and belongs
                 //to a player, count that chip for that player
@@ -94,7 +94,7 @@ export default class App extends React.PureComponent<Props, State> {
         //Save new state
         this.setState({ chipsPositions: newChipsPositions, playerTurn: newPlayerTurn, gameStatus });
 
-        
+        <SoundEffect/>
 
 
     };
